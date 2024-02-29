@@ -1,5 +1,5 @@
 import java.awt.*;
-
+import java.awt.image.BufferedImage;
 
 public class MapDraw {
     private static final int TILE_SIZE = 32; // Size of each tile
@@ -20,7 +20,7 @@ public class MapDraw {
     private int playerX;
     private int playerY;
 
-    public void drawMap(Graphics2D g) {
+    public void drawMap(Graphics2D g, BufferedImage imgMap) {
         // Player tile coordinates
         int mx = playerX / TILE_SIZE;
         int my = playerY / TILE_SIZE;
@@ -38,7 +38,7 @@ public class MapDraw {
                 drawTile(g,
                         tx * TILE_SIZE + VIRTUAL_WIDTH / 2 - playerX,
                         ty * TILE_SIZE + VIRTUAL_HEIGHT / 2 - playerY,
-                        MAP[py * MAP_WIDTH + px]);
+                        MAP[py * MAP_WIDTH + px], imgMap);
             }
         }
     }
@@ -46,11 +46,10 @@ public class MapDraw {
     /**
      * Draw a tile at the specified location.
      */
-    private void drawTile(Graphics2D g, int x, int y, int index) {
+    private void drawTile(Graphics2D g, int x, int y, int index, BufferedImage imgMap) {
         int ix = (index % TILE_COLUMN) * TILE_SIZE;
         int iy = (index / TILE_COLUMN) * TILE_SIZE;
-        // Assuming imgMap is your BufferedImage holding the tileset
-        // You need to load the tileset image beforehand
+        // Draw the tile using the tileset image
         g.drawImage(imgMap, x, y, x + TILE_SIZE, y + TILE_SIZE, ix, iy, ix + TILE_SIZE, iy + TILE_SIZE, null);
     }
 }
