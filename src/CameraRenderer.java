@@ -25,8 +25,6 @@ public class CameraRenderer {
         this.mainObjX = mainObjX;
         this.mainObjY = mainObjY;
 
-        // Initialize graphics2D after mainWindow is initialized
-        graphics2D = mainWindow.getGraphics();
     }
 
     int CHARACTER_WIDTH = 16; // Example value, adjust as needed
@@ -39,21 +37,11 @@ public class CameraRenderer {
     private DrawMainObject drawMainObject;
 
 
-    public CameraRenderer(MainWindow mainWindow, int mainObjX, int mainObjY, boolean isSecondConstructor) {
-        this.mainWindow = mainWindow;
-        this.mapDraw = new MapDraw(); // Initialize MapDraw
-        this.cameraX = 0; // Initial camera position
-        this.cameraY = 0;
-        this.mainObjX = mainObjX;
-        this.mainObjY = mainObjY;
-
-    }
-
-
     public void moveCamera(int deltaX, int deltaY) {
         // Move the camera by the specified amount
         cameraX += deltaX;
         cameraY += deltaY;
+
     }
 
 

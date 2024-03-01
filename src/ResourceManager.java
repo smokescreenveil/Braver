@@ -54,4 +54,9 @@ public static ResourceManager getInstance() {
     public BufferedImage getImgBoss() {
         return imgBoss;
     }
+
+
+
 }
+
+
