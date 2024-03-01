@@ -11,15 +11,16 @@ public class ResourceManager {
     private BufferedImage imgPlayer;
     private BufferedImage imgBoss;
 
+
     public ResourceManager() {
         // Private constructor to prevent instantiation outside this class
+        loadImage(); // Load images when the instance is first created
     }
 
-    public static ResourceManager getInstance() {
-        if (instance == null) {
-            instance = new ResourceManager();
-            instance.loadImage(); // Load images when the instance is first created
-        }
+public static ResourceManager getInstance() {
+    if (instance == null) {
+        instance = new ResourceManager();
+    }
         return instance;
     }
 
@@ -30,7 +31,10 @@ public class ResourceManager {
             imgPlayer = ImageIO.read(new File("images/player.png"));
             imgBoss = ImageIO.read(new File("images/boss.png"));
         } catch (IOException e) {
-            e.printStackTrace();
+            // Error handling: Log the error message or display an error dialog
+            e.printStackTrace(); // Print stack trace for debugging purposes
+            // You can also display an error message to the user
+            // JOptionPane.showMessageDialog(null, "Error: Failed to load image!");
         }
     }
 

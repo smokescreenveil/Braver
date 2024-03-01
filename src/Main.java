@@ -20,9 +20,17 @@ public class Main {
         // Initialize resources
         init();
 
+
+        // Example mainObj position
+        int mainObjX = 3;
+        int mainObjY = 3;
+
+
         // Create an instance of CameraRenderer
-        CameraRenderer cameraRenderer = new CameraRenderer(mainWindow);
+        CameraRenderer cameraRenderer = new CameraRenderer(mainWindow, mainObjX, mainObjY);
         cameraRenderer.startRendering();
+
+
 
         //setInterval(gameLoop, GAME_SPEED)
 
